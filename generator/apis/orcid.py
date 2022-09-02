@@ -2,7 +2,7 @@ import requests
 import json
 
 
-def _clean_date(date: dict) -> dict:
+def _clean_date(date: dict) -> dict | None:
     if date == None:
         return None
     return {key: val["value"] if val else None for key, val in date.items()}
@@ -51,9 +51,8 @@ class OrcidData:
     works: list
 
     def __init__(self, orcid_response):
-        self.name = "{p[given-names][value]} {p[family-name][value]}".format(
-            p=orcid_response["person"]["name"]
-        )
+        name = orcid_response["person"]["name"]
+        self.name = f"{name['given-names']['value']} {name['family-name']['value']}"
         self.biography = orcid_response["person"]["biography"]["content"]
         activities = orcid_response["activities-summary"]
         self.educations = []

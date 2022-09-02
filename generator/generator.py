@@ -69,7 +69,7 @@ def comma_list(items: list[str]) -> str:
     return ", ".join(items[:-1]) + f", and {items[-1]}"
 
 
-def format_work(work: dict) -> dict:
+def format_work(work: apis.crossref.Work) -> dict:
 
     return {
         "authors": comma_list(work.authors),
