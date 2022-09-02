@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta name="viewport" content="width=device-width,initial-scale=1">
+		<meta charset="UTF-8">
+		<title>{{title}}</title>
+		<link rel="stylesheet" href="style.css">
+		<link rel="stylesheet"
+		          href="https://fonts.googleapis.com/css?family=Overpass">
+		          
+	</head>
+	<body>
+		<div id="head">
+			<section>
+				<div id="contacts">
+					<h1 id="name">{{name}}</h1>
+					<div id="contact-list">
+					{% for contact in contacts %}
+					<div class="contact">
+						<a href="{{contact['link']}}">
+							<img class="icon" src="{{contact['icon']}}" alt="{{contact['type']}}"/>
+							<span class="handle">
+							{{contact['handle']}}
+							</span>
+						</a>
+					</div>
+					{% endfor %}
+					</div>
+				</div>
+				<div id="portrait">
+				<img src="images/portrait.jpg" alt="{{name}}"/>
+				</div>
+			</section>
+		</div>
+		<section id="about">
+			<h1>About</h1>
+			{{biography}}
+		</section>
+		{% macro activity(type, list) %}
+		<section id="{{type}}" class="activity">
+			<h1>{{type|title}}</h1>
+			{% for activity in list %}
+			<div class="duration">
+			<span>{{activity['start-date']}} – {{activity['end-date']}}</span>
+			</div>
+			<div class="details">
+			<span class="role">{{activity['role-title']}}</span>
+			<span class="organization">{{activity['organization']['name']}}</span>
+			{% if activity['department'] %}
+			<span class="department">{{activity['department']}}</span>
+			{% endif %}
+			<span class="address">{{activity['organization']['address']['city']}}, {{activity['organization']['address']['country']}}</span>
+			</div>
+			{% endfor %}
+		</section>
+		{% endmacro %}
+
+		{{activity('employment', employments)}}
+
+		<section id="funding" class="activity">
+			<h1>Funding</h1>
+			{% for funding in fundings %}
+			<div class="duration">
+			<span>{{funding['start-date']}} – {{funding['end-date']}}</span>
+			</div>
+			<div class="details">
+			<a href="{{funding['url']}}"><span class="title">{{funding['title']}}</span></a>
+			<span class="organization">{{funding['organization']['name']}}</span>
+			{% if funding['department'] %}
+			<span class="department">{{funding['department']}}</span>
+			{% endif %}
+			<span class="address">{{funding['organization']['address']['city']}}, {{funding['organization']['address']['country']}}</span>
+			</div>
+			{% endfor %}
+		</section>
+		{{activity('education', educations)}}
+
+		<section id="publications">
+			<h1>Publications</h1>
+			<ol>
+				{% for work in works %}
+				<li class="publication">
+					<div>
+					<span class="authors">
+						{{work['authors']}},
+					</span>
+					</div>
+					<div>
+					<span class="title">
+						{{work['title']}},
+					</span>
+					</div>
+					<div>
+					<a href="https://doi.org/{{work['doi']}}">
+					<span class="journal">
+						{{work['journal']}}
+					</span>
+					<span class="volume">
+						<b>{{work['volume']}}</b>,
+					</span>
+					<span class="page">
+						{{work['page']}}
+					</span>
+					<span class="year">
+						({{work['year']}})
+					</span>
+					</a>
+					</div>
+				</li>
+				{% endfor %}
+			</ol>
+		</section>
+		<div id="footer">
+			<section>
+				<span>This page was <a href="https://github.com/lukas-weber/lukas-weber.github.io">generated automatically</a> from my <a href="http://orcid.org/{{orcid_id}}">ORCID record</a>.</span>
+			</section>
+		</div>
+	</body>
+</html>

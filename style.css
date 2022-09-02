@@ -1,1 +1,131 @@
+:root {
+	--clr-dark: CadetBlue;
+	--clr-mid: #9ED2C6;
+	--clr-light: #F7ECDE;
+}
 
+a {
+	color: var(--clr-dark);
+	text-decoration: none;
+}
+
+li::marker {
+	color: gray;
+	width: 1em;
+}
+li {
+	margin-bottom: 1rem;
+}
+
+body {
+	padding: 0;
+	margin:0;
+	font-family: Overpass;
+	color: #333;
+}
+
+#head {
+	background: var(--clr-dark);
+	margin-bottom:2em;
+}
+
+section {
+	width: min(40rem,80vw);
+	margin: auto;
+}
+
+#head section {
+	flex-direction: row;
+	display:flex;
+	justify-content: space-between;
+	align-items: center;
+	height: 12rem;
+}
+
+#portrait img, #portrait {
+	height:100%;
+}
+
+#contacts {
+	flex:1;
+}
+
+#contacts h1 {
+	margin:0;
+}
+
+#contacts .icon {
+	position:relative;
+	top:0.2em;
+	height: 1.2em;
+	padding-top: 0.1em;
+}
+
+#contacts a {
+	color: white;
+}
+
+.contact {
+	font-size: 12pt;
+}
+
+#about {
+	hyphens: auto;
+	text-align: justify;
+}
+
+.activity {
+	display: grid;
+	gap: 2vw;
+	grid-template-columns: 7em auto;
+	grid-auto-rows: auto;
+}
+
+.activity .duration{
+	grid-column:1;
+	color: gray;
+}
+
+.activity .details {
+	grid-column: 2;
+	display: flex;
+	flex-direction: column;
+}
+
+.activity .role {
+	font-weight: bold;
+}
+
+.activity .address {
+	color: gray;
+}
+
+.publication {
+	hyphens: auto;
+	text-align: justify;
+}
+
+.publication .volume {
+	margin:0;
+}
+
+.publication .title {
+	font-style: italic;
+}
+
+#footer {
+	font-size: 12pt;
+	
+	border-top: 2pt dashed cadetblue;
+	padding: 0.5rem;
+}
+
+@media only screen and (max-width: 30em) {
+#contacts .handle {
+	display: none;
+}
+	#contact-list {
+		display: flex;
+		gap: 1vw;
+	}
+}
