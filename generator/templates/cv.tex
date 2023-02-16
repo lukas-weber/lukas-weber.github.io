@@ -1,0 +1,115 @@
+\documentclass[12pt]{article}
+
+\usepackage{fontspec}
+\setmainfont{Nimbus Roman}
+\setmonofont{Nimbus Mono}
+\usepackage[marginparwidth=0.5cm,a4paper,tmargin=2.75cm,bmargin=3cm,lmargin=2.5cm,rmargin=2.5cm]{geometry}
+\usepackage{tabularx}
+
+\begin{document}
+
+\B{macro format_address(addr)}
+\V{addr['city']}, \V{addr['region']}, \V{addr['country']}
+\B{endmacro}
+
+\begin{center}
+	{\Large \V{name}} \\
+	\vspace{0.5em}
+	\V{employments[0]['department-name']}, \V{employments[0]['organization']['name']}, 
+	\V{format_address(employments[0]['organization']['address'])}\\
+	ORCID: \V{orcid_id}\\
+    \texttt{\V{email}}\\
+\end{center}
+\rule{\textwidth}{1pt}
+
+\B{macro activity(type, list)}
+\section*{\V{type|title}}
+\begin{tabular}{ll}
+\B{for activity in list}
+\V{activity['start-date']} -- \V{activity['end-date']} & \V{activity['role-title']}\\
+& \V{activity['organization']['name']}\\
+\B{if activity['department']}
+& \V{activity['organization']['department']}\\
+\B{endif}
+& \V{activity['organization']['address']['city']}, \V{activity['organization']['address']['country']} \\
+\B{endfor}
+\end{tabular}
+\B{endmacro}
+
+\V{activity('education', educations)}
+\V{activity('positions', employments)}
+
+\section*{Research Interests}
+\begin{itemize}
+\B{for interest in interests}
+	\item \V{interest}
+\B{endfor}
+\end{itemize}
+
+\section*{Skills}
+\begin{itemize}
+\B{for skill in skills}
+	\item \V{skill}
+\B{endfor}
+\end{itemize}
+
+\section*{Teaching Experience}
+\subsection*{Teaching Assistant}
+\begin{tabular}{rll}
+\B{for lec in teaching['teaching-assistant']}
+	\V{lec.semester} & \V{lec.year} & \V{lec.lecture} \\
+\B{endfor}
+\end{tabular}
+\subsection*{Substitute Lectures}
+\begin{tabular}{rll}
+\B{for lec in teaching['substitute-lectures']}
+	\V{lec.semester} & \V{lec.year} & \V{lec.lecture} \\
+\B{endfor}
+\end{tabular}
+\section*{Assisted Supervision}
+\begin{itemize}
+\B{for student in assisted_supervision}
+	\item \V{student.name} (\V{student.type} student)
+\B{endfor}
+\end{itemize}
+\section*{Special lectures attended}
+\begin{itemize}
+\B{for lecture in special_lectures}
+	\item \V{lecture}
+\B{endfor}
+\end{itemize}
+
+\section*{Public Outreach}
+\begin{tabular}{ll}
+\B{for out in public_outreach}
+\V{out.year} & \V{out.name}\\
+& \V{out.institution}\\
+\B{endfor}
+\end{tabular}
+
+\section*{Publications}
+\B{include 'templates/publications.tex'}
+\section*{Conferences}
+
+
+\begin{tabularx}{\textwidth}{lX}
+\B{for conf in conferences}
+\V{conf.year} & \V{conf.name}\\
+\B{if conf.type}
+& \V{conf.type|title}: \textit{\V{conf.title}}\\
+\B{endif}
+& \V{conf.place}\\
+\B{endfor}
+\end{tabularx}
+\section*{Seminars/Visits}
+\begin{tabularx}{\textwidth}{lX}
+\B{for sem in seminars}
+	\V{sem.year} & \B{if sem.role} \V{sem.role} \B{else} \textit{\V{sem.title}} \B{endif}\\
+	& \V{sem.address}\\
+\B{endfor}
+\end{tabularx}
+
+
+
+
+\end{document}

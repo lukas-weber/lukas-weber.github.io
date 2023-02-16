@@ -2,21 +2,17 @@
 import apis.orcid
 import apis.crossref
 
-import jinja2
-import markdown
+import backends.website
+import backends.cv
 
 import argparse
+
+import markdown
 
 md = markdown.Markdown()
 
 parser = argparse.ArgumentParser(
     description="Generate a personal site based on an ORCID record and some metadata from the Crossref database."
-)
-parser.add_argument(
-    "--template-file",
-    type=str,
-    required=True,
-    help="The jinja2 template file that should be filled with information",
 )
 parser.add_argument(
     "--output-file", type=str, required=True, help="Destination for the filled template"
@@ -26,6 +22,17 @@ parser.add_argument(
     type=str,
     required=True,
     help="Public access token for the ORCID api",
+)
+parser.add_argument(
+    "--backend",
+    choices=["website", "cv", "publist"],
+    required=True,
+    help="Output backend",
+)
+parser.add_argument(
+    "--cv-file",
+    type=str,
+    help="YAML file containing additional CV data for the tex backends",
 )
 args = parser.parse_args()
 
@@ -119,11 +126,12 @@ site_data = {
     "fundings": [format_funding(funding) for funding in orcid_record.fundings],
 }
 
-subs = (
-    jinja2.Environment(loader=jinja2.FileSystemLoader("./"))
-    .get_template(args.template_file)
-    .render(**site_data)
-)
-
-with open(args.output_file, "w") as f:
-    f.write(subs)
+if args.backend == "website":
+    backends.website.generate(site_data=site_data, output_file=args.output_file)
+elif args.backend == "cv" or args.backend == "publist":
+    backends.cv.generate(
+        site_data=site_data,
+        template_file=f"templates/{args.backend}.tex",
+        cv_file=args.cv_file,
+        output_file=args.output_file,
+    )
