@@ -21,7 +21,7 @@ jobs:
       
     - name: Install modules
       run: |
-        pip3 install jinja2 markdown requests
+        pip3 install -r generator/requirements.txt
 
     - name: Build HTML
       id: build

@@ -1,3 +1,4 @@
 requests
 markdown
+yaml
 jinja2
