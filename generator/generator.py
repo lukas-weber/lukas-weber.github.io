@@ -6,6 +6,7 @@ import backends.website
 import backends.cv
 
 import argparse
+import os
 
 import markdown
 
@@ -125,6 +126,8 @@ site_data = {
     "works": [format_work(work) for work in crossref_works],
     "fundings": [format_funding(funding) for funding in orcid_record.fundings],
 }
+
+os.chdir(os.path.dirname(os.path.realpath(__file__)))
 
 if args.backend == "website":
     backends.website.generate(site_data=site_data, output_file=args.output_file)
