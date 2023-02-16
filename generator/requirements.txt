@@ -1,4 +1,4 @@
 requests
 markdown
-yaml
+pyyaml
 jinja2
