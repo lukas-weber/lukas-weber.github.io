@@ -28,7 +28,7 @@ jobs:
       env:
         orcid_access_token: ${{ secrets.orcid_access_token }}
       run: |
-        generator/generator.py --template-file=generator/template.html --output-file=index.html --orcid-access-token="$ORCID_ACCESS_TOKEN"
+        generator/generator.py --backend=website --output-file=index.html --orcid-access-token="$ORCID_ACCESS_TOKEN"
         echo ::set-output name=commit::$(git rev-parse HEAD)
 
     - name: Prepare to commit
