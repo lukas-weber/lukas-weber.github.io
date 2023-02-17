@@ -116,10 +116,10 @@ site_data = {
             "type": "Github",
             "icon": "images/icons/github.svg",
             "link": "https://github.com/lukas-weber",
-            "handle": "Github",
+            "handle": "@lukas-weber",
         },
     ],
-    "name": orcid_record.name,
+    "name": orcid_record.name + " – Physics",
     "biography": md.convert(orcid_record.biography),
     "employments": [format_activity(act) for act in orcid_record.employments],
     "educations": [format_activity(act) for act in orcid_record.educations],
@@ -127,14 +127,16 @@ site_data = {
     "fundings": [format_funding(funding) for funding in orcid_record.fundings],
 }
 
+output_file = os.path.abspath(args.output_file)
+
 os.chdir(os.path.dirname(os.path.realpath(__file__)))
 
 if args.backend == "website":
-    backends.website.generate(site_data=site_data, output_file=args.output_file)
+    backends.website.generate(site_data=site_data, output_file=output_file)
 elif args.backend == "cv" or args.backend == "publist":
     backends.cv.generate(
         site_data=site_data,
         template_file=f"templates/{args.backend}.tex",
         cv_file=args.cv_file,
-        output_file=args.output_file,
+        output_file=output_file,
     )
