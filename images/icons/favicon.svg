@@ -20,19 +20,20 @@
      borderopacity="0.25"
      inkscape:showpageshadow="2"
      inkscape:pageopacity="0.0"
-     inkscape:pagecheckerboard="0"
+     inkscape:pagecheckerboard="true"
      inkscape:deskcolor="#d1d1d1"
      inkscape:document-units="mm"
      showgrid="false"
-     inkscape:zoom="14.638496"
-     inkscape:cx="19.059335"
-     inkscape:cy="15.131336"
+     inkscape:zoom="2.587745"
+     inkscape:cx="71.297598"
+     inkscape:cy="38.836903"
      inkscape:window-width="3812"
      inkscape:window-height="2090"
      inkscape:window-x="12"
      inkscape:window-y="12"
      inkscape:window-maximized="1"
-     inkscape:current-layer="layer1" />
+     inkscape:current-layer="layer1"
+     showborder="true" />
   <defs
      id="defs2" />
   <g
@@ -41,22 +42,19 @@
      id="layer1">
     <path
        id="path524"
-       style="fill:#3771c8;stroke-width:0.313584"
+       style="fill:#3771c8;stroke-width:0.5;stroke:#ffffff;stroke-opacity:1;stroke-dasharray:none;stroke-linejoin:round;stroke-linecap:round"
        d="M 9.2292655,0.43990487 5.8336071,1.0114462 6.6103039,1.7876262 5.9922537,2.4056763 A 2.7738128,2.7738128 0 0 0 4.7819917,2.1276571 2.7738128,2.7738128 0 0 0 2.0080008,4.901648 2.7738128,2.7738128 0 0 0 2.2886038,6.1093262 L 0.31714795,8.0807821 0.94760041,8.7112346 Z" />
     <path
        id="path542"
-       style="fill:#c83737;fill-opacity:1;stroke-width:0.313584"
+       style="fill:#c83737;fill-opacity:1;stroke-width:0.39999998;stroke:#ffffff;stroke-opacity:1;stroke-dasharray:none;stroke-linecap:round;stroke-linejoin:round"
        d="M 0.6645391,9.5494512 4.0601975,8.9779098 3.2835007,8.2017298 3.9015509,7.5836797 A 2.7738128,2.7738128 0 0 0 5.1118129,7.8616989 2.7738128,2.7738128 0 0 0 7.8858038,5.087708 2.7738128,2.7738128 0 0 0 7.6052008,3.8800298 L 9.5766567,1.9085739 8.9462042,1.2781214 Z" />
-    <text
-       xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7.5349px;line-height:1.25;font-family:'Noto Sans CJK JP';-inkscape-font-specification:'Noto Sans CJK JP';fill:#000000;fill-opacity:1;stroke-width:0.627905"
-       x="1.2890623"
-       y="7.8632617"
-       id="text943"><tspan
-         sodipodi:role="line"
-         id="tspan941"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'Noto Sans CJK JP';-inkscape-font-specification:'Noto Sans CJK JP';fill:#000000;stroke-width:0.627905"
-         x="1.2890623"
-         y="7.8632617">揺</tspan></text>
+    <path
+       id="path1748"
+       style="fill:#3771c8;stroke-width:0.5;stroke:none;stroke-opacity:1;stroke-dasharray:none;stroke-linejoin:round;stroke-linecap:round"
+       d="M 9.2292655,0.43990487 5.8336071,1.0114462 6.6103039,1.7876262 5.9922537,2.4056763 A 2.7738128,2.7738128 0 0 0 4.7819917,2.1276571 2.7738128,2.7738128 0 0 0 2.0080008,4.901648 2.7738128,2.7738128 0 0 0 2.2886038,6.1093262 L 0.31714795,8.0807821 0.94760041,8.7112346 Z" />
+    <path
+       id="path1750"
+       style="fill:#c83737;fill-opacity:1;stroke-width:0.39999998;stroke:none;stroke-opacity:1;stroke-dasharray:none;stroke-linecap:round;stroke-linejoin:round"
+       d="M 0.6645391,9.5494512 4.0601975,8.9779098 3.2835007,8.2017298 3.9015509,7.5836797 A 2.7738128,2.7738128 0 0 0 5.1118129,7.8616989 2.7738128,2.7738128 0 0 0 7.8858038,5.087708 2.7738128,2.7738128 0 0 0 7.6052008,3.8800298 L 9.5766567,1.9085739 8.9462042,1.2781214 Z" />
   </g>
 </svg>
