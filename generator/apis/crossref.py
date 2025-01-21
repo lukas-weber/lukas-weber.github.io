@@ -25,7 +25,7 @@ def _clean_work(work: dict) -> Work:
         doi=work["DOI"],
         journal=work["short-container-title"][0],
         page=work.get("page", work.get("article-number", None)),
-        volume=work["volume"],
+        volume=work.get("volume", ""),
         year=work["published"]["date-parts"][0][0],
     )
 

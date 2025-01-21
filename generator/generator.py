@@ -42,7 +42,7 @@ orcid_record = apis.orcid.fetch_record(
     access_token=args.orcid_access_token, orcid=orcid_id
 )
 
-crossref_works = apis.crossref.fetch_works([work["doi"] for work in orcid_record.works])
+crossref_works = apis.crossref.fetch_works([work["doi"] for work in orcid_record.works if work["type"] != "preprint"])
 
 
 def format_date(date: dict, month=False) -> str:
